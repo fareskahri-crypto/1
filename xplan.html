@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xplan - Project No85</title>
+  <meta name="theme-color" content="#f5f5f5">
+  <meta name="description" content="Xplan Project No85">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/pannellum/build/pannellum.js"></script>
+
+  <!-- Minified Pannellum CSS -->
+  <style> 
+  img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+  </style>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+    }
+    .header nav {
+      margin: 10px 0;
+    }
+    .header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      cursor: pointer;
+    }
+    .project-title {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      color: #333;
+      cursor: pointer;
+    }
+    .content {
+      width: 80%;
+      display: none;
+    }
+    .content.active {
+      display: block;
+    }
+    .layout-section {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .layout-section img {
+      width: 45%;
+    }
+    .details {
+      width: 45%;
+    }
+    .details div {
+      margin: 10px 0;
+    }
+    .render-slider {
+      display: flex;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    .render-slider img {
+      width: 300px;
+      height: 200px;
+      margin-right: 10px;
+    }
+    /* Panorama section */
+    #panorama {
+      width: 100%;
+      height: 60vh;
+      margin: auto;
+    }
+    .floor-links {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+    }
+    .floor-links a {
+      text-decoration: none;
+      color: #0066cc;
+      cursor: pointer;
+      display: block;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Xplan</h1>
+    <nav>
+      <a onclick="showContent('overview')">Overview</a>
+      <a onclick="showContent('3dTour')">3D Tour</a>
+      <a onclick="showContent('livingRoom')">Living Room</a>
+      <a onclick="showContent('material')">Material</a>
+      <a onclick="showContent('bathrooms')">Bathrooms</a>
+      <a onclick="showContent('bedrooms')">Bedrooms</a>
+      <a onclick="showContent('pricing')">Pricing</a>
+    </nav>
+    <p>Nabeul, Tunisie</p>
+  </div>
+
+  <div class="project-title">Dar Fathel Ben Achora</div>
+
+  <!-- Floor navigation -->
+  <div class="nav-buttons" id="floorNav">
+    <a id="backPlan">← Back</a>
+    <a id="nextPlan">Next →</a>
+  </div>
+
+  <!-- Overview Section -->
+  <div id="overview" class="content active">
+    <div class="layout-section">
+      <img id="planImage" src="plan1.jpg" alt="Floor Plan">
+      <div class="details" id="planDetails"></div>
+    </div>
+    <div class="render-slider">
+      <img src="render1.jpg" alt="Render 1">
+      <img src="render2.jpg" alt="Render 2">
+    </div>
+  </div>
+
+  <!-- 3D Tour Section -->
+  <div id="3dTour" class="content">
+    <div id="panorama"></div>
+    <div class="floor-links">
+      <div>
+        <a onclick="changePanorama('main')">Living Room</a>
+        <a onclick="changePanorama('kitchen')">Kitchen</a>
+        <a onclick="changePanorama('bathroom1')">Bathroom</a>
+        <a onclick="changePanorama('diningRoom')">Dining Room</a>
+      </div>
+      <div>
+        <a onclick="changePanorama('bedroom')">Bedroom</a>
+        <a onclick="changePanorama('masterRoom')">Master Room</a>
+        <a onclick="changePanorama('bedroom2')">Bedroom 2</a>
+        <a onclick="changePanorama('bathroom2')">Bathroom 2</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Other Sections -->
+  <div id="livingRoom" class="content"><p>Living Room content goes here.</p></div>
+  <div id="material" class="content"><p>Material content goes here.</p></div>
+  <div id="bathrooms" class="content"><p>Bathrooms content goes here.</p></div>
+  <div id="bedrooms" class="content"><p>Bedrooms content goes here.</p></div>
+  <div id="pricing" class="content"><p>Pricing content goes here.</p></div>
+
+  <!-- Minified Pannellum JS -->
+  <script>
+    /* Pannellum JS content here */
+  </script>
+
+  <script>
+    // Floors Data
+    const floors = [
+      {
+        img: "plan1.jpg",
+        title: "1ere étage",
+        details: [
+          "Total area: 120m²",
+          "Salle à manger: 25m²",
+          "Cuisine: 30m²",
+          "Bathrooms: 9m²",
+          "Salon: 20m²",
+          "Total price: 221,000 dt"
+        ]
+      },
+      {
+        img: "plan2.jpg",
+        title: "2eme étage",
+        details: [
+          "Total area: 140m²",
+          "Salle à manger: 35m²",
+          "Cuisine: 28m²",
+          "Bathrooms: 10m²",
+          "Salon: 30m²",
+          "Total price: 250,000 dt"
+        ]
+      }
+    ];
+
+    let currentFloor = 0;
+    let viewer = null;
+
+    function updateFloor() {
+      const f = floors[currentFloor];
+      document.getElementById("planImage").src = f.img;
+      document.getElementById("planDetails").innerHTML =
+        `<h2>${f.title}</h2>` + f.details.map(d => `<div>${d}</div>`).join("");
+      document.getElementById("backPlan").style.visibility = currentFloor === 0 ? "hidden" : "visible";
+      document.getElementById("nextPlan").style.visibility = currentFloor === floors.length - 1 ? "hidden" : "visible";
+    }
+
+    document.getElementById("backPlan").onclick = () => {
+      if (currentFloor > 0) { currentFloor--; updateFloor(); }
+    };
+    document.getElementById("nextPlan").onclick = () => {
+      if (currentFloor < floors.length - 1) { currentFloor++; updateFloor(); }
+    };
+
+    function showContent(section) {
+      document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+      document.getElementById(section).classList.add('active');
+      document.getElementById("floorNav").style.display = section === "overview" ? "flex" : "none";
+
+      if (section === "3dTour" && !viewer) {
+        viewer = pannellum.viewer('panorama', {
+          default: { firstScene: "main" },
+          scenes: {
+            main: { type: "equirectangular", panorama: "real time.png" ,autoLoad: true}, // Living Room default
+            kitchen: { type: "equirectangular", panorama: "1.png" ,autoLoad: true,},
+            bathroom1: { type: "equirectangular", panorama: "3.png",autoLoad: true },
+            diningRoom: { type: "equirectangular", panorama: "4.png" ,autoLoad: true
+
+            },
+            bedroom: { type: "equirectangular", panorama: "pa.png",autoLoad: true }, // Bedroom
+            masterRoom: { type: "equirectangular", panorama: "6.png",autoLoad: true },
+            bedroom2: { type: "equirectangular", panorama: "7.png" ,autoLoad: true},
+            bathroom2: { type: "equirectangular", panorama: "8.png" ,autoLoad: true}
+          }
+        });
+      }
+    }
+
+    function changePanorama(scene) {
+      if (viewer) viewer.loadScene(scene);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      updateFloor();
+      showContent("overview");
+    });
+  </script>
+</body>
+</html>
